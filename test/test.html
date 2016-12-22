@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <title>test for swiper.js</title>
+    <style>
+        .swiper {
+            height: 100%;
+            overflow: hidden;
+            -webkit-transition: all 0.3s ease;
+            transition: all 0.3s ease;
+        }
+        .item {
+            height: 100%;
+            background-position: center center;
+            background-size: cover;
+            position: relative;
+            overflow: hidden;
+            float: left;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        html,
+        body {
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .container{
+            height: 100%;
+        }
+        .item{
+            color: #ffffff;
+        }
+        .title{
+            margin-top: 100px;
+            text-align: center;
+        }
+        .item.active .animated{
+            -webkit-animation-fill-mode: both;
+            -moz-animation-fill-mode: both;
+            -o-animation-fill-mode: both;
+            animation-fill-mode: both;
+            opacity: 1 !important;
+        }
+        .item:not(.active) .animated{
+            -webkit-animation: none;
+            -o-animation: none;
+            animation: none;
+            opacity: 0 !important;
+        }
+        .item1{
+            background-color: #ff6f3d;
+        }
+
+        .item2{
+            background-color: #ec6f69;
+        }
+
+        .item3{
+            background-color: #d2c8ed;
+        }
+    </style>
+    <link rel="stylesheet" href="./mocha.css"/>
+    <style>
+        #mocha{
+            position: fixed;
+            z-index: 1024;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-color: #fff;
+        }
+    </style>
+</head>
+<body>
+<div id="mocha"></div>
+<div class="container">
+    <div class="swiper">
+        <div class="item item1">
+            <h2 class="title slideInLeft animated">i am bear</h2>
+        </div>
+        <div class="item item2">
+            <h2 class="title slideInRight animated">i am jf</h2>
+        </div>
+
+        <div class="item item3">
+            <h2 class="title slideInLeft animated">xxxxxxxx</h2>
+        </div>
+    </div>
+</div>
+<script src="./mocha.js"></script>
+<script src="../dist/swiper.js"></script>
+<script>
+    var swiper = new Swiper();
+</script>
+<script>
+    mocha.setup({ui: 'bdd'});
+    function assert(expr, msg){
+        if(!expr){
+            throw new Error(msg || 'failed');
+        }
+    }
+</script>
+<script src="./test.js"></script>
+<script>
+    mocha.run();
+</script>
+</body>
+</html>
